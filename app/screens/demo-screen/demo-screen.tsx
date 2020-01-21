@@ -1,5 +1,14 @@
 import * as React from "react"
-import { Image, ImageStyle, Platform, TextStyle, View, ViewStyle } from "react-native"
+import {
+  Image,
+  ImageStyle,
+  Platform,
+  TextStyle,
+  View,
+  ViewStyle,
+  SafeAreaView,
+  ProgressViewIOSComponent,
+} from "react-native"
 import { NavigationInjectedProps } from "react-navigation"
 import { BulletItem, Button, Header, Text, Screen, Wallpaper } from "../../components"
 import { color, spacing } from "../../theme"
@@ -75,11 +84,35 @@ const HINT: TextStyle = {
   lineHeight: 15,
   marginVertical: spacing[2],
 }
+const CONTINUE: ViewStyle = {
+  paddingVertical: spacing[4],
+  paddingHorizontal: spacing[4],
+  backgroundColor: "#5D2555",
+}
+const TEXT: TextStyle = {
+  color: color.palette.white,
+  fontFamily: "Montserrat",
+}
+const CONTINUE_TEXT: TextStyle = {
+  ...TEXT,
+  ...BOLD,
+  fontSize: 13,
+  letterSpacing: 2,
+}
+const FOOTER: ViewStyle = { backgroundColor: "#20162D" }
+const FOOTER_CONTENT: ViewStyle = {
+  paddingVertical: spacing[4],
+  paddingHorizontal: spacing[4],
+}
 
 export interface DemoScreenProps extends NavigationInjectedProps<{}> {}
 
 export const DemoScreen: React.FunctionComponent<DemoScreenProps> = props => {
   const goBack = React.useMemo(() => () => props.navigation.goBack(null), [props.navigation])
+
+  const nextScreen = React.useMemo(() => () => props.navigation.navigate("Main"), [
+    props.navigation,
+  ])
 
   const demoReactotron = React.useMemo(
     () => async () => {
@@ -99,7 +132,9 @@ export const DemoScreen: React.FunctionComponent<DemoScreenProps> = props => {
               },
             },
           },
-          functionNames: function hello() { /* dummy function */ },
+          functionNames: function hello() {
+            /* dummy function */
+          },
         },
         preview: "More control with display()",
         important: true,
@@ -150,6 +185,17 @@ export const DemoScreen: React.FunctionComponent<DemoScreenProps> = props => {
           <Text style={LOVE} text="by Infinite Red" />
         </View>
       </Screen>
+      <SafeAreaView style={FOOTER}>
+        <View style={FOOTER_CONTENT}>
+          <Button
+            testID="next-screen-button"
+            style={CONTINUE}
+            textStyle={CONTINUE_TEXT}
+            tx="welcomeScreen.continue"
+            onPress={nextScreen}
+          />
+        </View>
+      </SafeAreaView>
     </View>
   )
 }
