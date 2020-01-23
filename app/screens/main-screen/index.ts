@@ -1,2 +1,2 @@
-export * from "./options-tab"
-export * from "./todo-tab"
+export * from "./settings-screen"
+export * from "./todo-screen"

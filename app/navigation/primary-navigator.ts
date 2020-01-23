@@ -1,12 +1,14 @@
 import createNativeStackNavigator from "react-native-screens/createNativeStackNavigator"
-import { WelcomeScreen, DemoScreen } from "../screens"
+import { WelcomeScreen } from "../screens"
+import { MainTabNavigator } from "./main-navigator"
 
 export const PrimaryNavigator = createNativeStackNavigator(
   {
     welcome: { screen: WelcomeScreen },
-    demo: { screen: DemoScreen },
+    main: { screen: MainTabNavigator },
   },
   {
+    initialRouteName: "welcome",
     headerMode: "none",
   },
 )
