@@ -110,7 +110,7 @@ export interface DemoScreenProps extends NavigationInjectedProps<{}> {}
 export const DemoScreen: React.FunctionComponent<DemoScreenProps> = props => {
   const goBack = React.useMemo(() => () => props.navigation.goBack(null), [props.navigation])
 
-  const nextScreen = () => props.navigation.navigate("welcomeTab")
+  const nextScreen = () => props.navigation.navigate("tasksTab")
 
   const demoReactotron = React.useMemo(
     () => async () => {

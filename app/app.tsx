@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react"
 import { AppRegistry, YellowBox } from "react-native"
 import { StatefulNavigator, BackButtonHandler, exitRoutes } from "./navigation"
 import { RootStore, RootStoreProvider, setupRootStore } from "./models/root-store"
+import { loadFonts } from "./utils/fonts"
 
 import { contains } from "ramda"
 import { enableScreens } from "react-native-screens"
@@ -15,6 +16,8 @@ import { enableScreens } from "react-native-screens"
 // stack navigation, use `createNativeStackNavigator` in place of `createStackNavigator`:
 // https://github.com/kmagiera/react-native-screens#using-native-stack-navigator
 enableScreens()
+
+loadFonts()
 
 /**
  * Ignore some yellowbox warnings. Some of these are for deprecated functions

@@ -78,7 +78,7 @@ const FOOTER_CONTENT: ViewStyle = {
 export interface WelcomeScreenProps extends NavigationInjectedProps<{}> {}
 
 export const WelcomeScreen: React.FunctionComponent<WelcomeScreenProps> = props => {
-  const nextScreen = React.useMemo(() => () => props.navigation.navigate("welcomeTab"), [
+  const nextScreen = React.useMemo(() => () => props.navigation.navigate("tasksTab"), [
     props.navigation,
   ])
 
