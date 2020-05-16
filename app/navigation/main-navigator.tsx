@@ -2,7 +2,7 @@ import React from "react"
 import { StyleSheet, ImageStyle } from "react-native"
 import { createBottomTabNavigator } from "react-navigation-tabs"
 
-import { WelcomeScreen, DemoScreen } from "../screens"
+import { TasksScreen, ReminderScreen } from "../screens"
 import { Icon } from "../components"
 import { IconTypes } from "../components/icon/icons"
 import { color } from "../theme"
@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
   remindersIcon: {
     height: 25,
     width: 25,
+  },
+  tabBar: {
+    backgroundColor: color.palette.black,
   },
   tasksIcon: {
     height: 25,
@@ -30,14 +33,14 @@ export const getTabBarIcon = (
 export const MainTabNavigator = createBottomTabNavigator(
   {
     tasksTab: {
-      screen: DemoScreen,
+      screen: TasksScreen,
       navigationOptions: () => ({
         tabBarLabel: "Tasks",
         tabBarIcon: getTabBarIcon("tasksBlue", "tasksOrange", styles.tasksIcon),
       }),
     },
     reminderTab: {
-      screen: WelcomeScreen,
+      screen: ReminderScreen,
       navigationOptions: () => ({
         tabBarLabel: "Reminders",
         tabBarIcon: getTabBarIcon("bookmarkBlue", "bookmarkOrange", styles.remindersIcon),
@@ -53,11 +56,10 @@ export const MainTabNavigator = createBottomTabNavigator(
     //   // },
     // }),
     tabBarOptions: {
+      style: styles.tabBar,
       labelStyle: styles.label,
-      activeBackgroundColor: color.palette.cyan,
-      inactiveBackgroundColor: color.palette.cyan,
-      activeTintColor: color.palette.orangeDarker,
-      inactiveTintColor: color.palette.black,
+      activeTintColor: color.palette.orange,
+      inactiveTintColor: color.palette.blue,
     },
   },
 )

@@ -1,2 +1,2 @@
-export * from "./settings-screen"
-export * from "./todo-screen"
+export * from "./reminder-screen"
+export * from "./tasks-screen"

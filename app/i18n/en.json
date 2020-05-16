@@ -7,6 +7,9 @@
   "errors": {
     "invalidEmail": "Invalid email address."
   },
+  "tasksScreen": {
+    "header": "Header"
+  },
   "welcomeScreen": {
     "poweredBy": "POWERED BY BOWSER",
     "readyForLaunch": "Ready for launch.",

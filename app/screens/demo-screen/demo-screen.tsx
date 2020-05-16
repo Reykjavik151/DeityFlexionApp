@@ -87,7 +87,7 @@ const HINT: TextStyle = {
 const CONTINUE: ViewStyle = {
   paddingVertical: spacing[4],
   paddingHorizontal: spacing[4],
-  backgroundColor: "#5D2555",
+  backgroundColor: color.palette.orange,
 }
 const TEXT: TextStyle = {
   color: color.palette.white,
