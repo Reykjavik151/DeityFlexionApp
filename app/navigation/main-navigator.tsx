@@ -1,22 +1,31 @@
 import React from "react"
-// import { Image } from "react-native"
+import { StyleSheet, ImageStyle } from "react-native"
 import { createBottomTabNavigator } from "react-navigation-tabs"
+
 import { WelcomeScreen, DemoScreen } from "../screens"
 import { Icon } from "../components"
-import { StyleSheet } from "react-native"
+import { IconTypes } from "../components/icon/icons"
+import { color } from "../theme"
 
 const styles = StyleSheet.create({
+  label: {
+    fontWeight: "bold",
+  },
   remindersIcon: {
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
   },
   tasksIcon: {
-    height: 30,
-    width: 30,
+    height: 25,
+    width: 25,
   },
 })
 
-export const getTabBarIcon = (icon, style) => () => <Icon icon={icon} style={style} />
+export const getTabBarIcon = (
+  unactiveIcon: IconTypes,
+  activeIcon: IconTypes,
+  style: ImageStyle,
+) => ({ focused }) => <Icon icon={focused ? activeIcon : unactiveIcon} style={style} />
 
 export const MainTabNavigator = createBottomTabNavigator(
   {
@@ -24,14 +33,14 @@ export const MainTabNavigator = createBottomTabNavigator(
       screen: DemoScreen,
       navigationOptions: () => ({
         tabBarLabel: "Tasks",
-        tabBarIcon: getTabBarIcon("tasks", styles.tasksIcon),
+        tabBarIcon: getTabBarIcon("tasksBlue", "tasksOrange", styles.tasksIcon),
       }),
     },
     reminderTab: {
       screen: WelcomeScreen,
       navigationOptions: () => ({
         tabBarLabel: "Reminders",
-        tabBarIcon: getTabBarIcon("reminder", styles.remindersIcon),
+        tabBarIcon: getTabBarIcon("bookmarkBlue", "bookmarkOrange", styles.remindersIcon),
       }),
     },
   },
@@ -43,9 +52,12 @@ export const MainTabNavigator = createBottomTabNavigator(
     //   //   return <Text>{`Hello, ${tintColor}`}</Text>
     //   // },
     // }),
-    // tabBarOptions: {
-    //   activeTintColor: "tomato",
-    //   inactiveTintColor: "gray",
-    // },
+    tabBarOptions: {
+      labelStyle: styles.label,
+      activeBackgroundColor: color.palette.cyan,
+      inactiveBackgroundColor: color.palette.cyan,
+      activeTintColor: color.palette.orangeDarker,
+      inactiveTintColor: color.palette.black,
+    },
   },
 )
