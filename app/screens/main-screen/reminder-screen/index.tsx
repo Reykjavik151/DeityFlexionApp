@@ -1,25 +1,27 @@
 import * as React from "react"
 import { observer } from "mobx-react-lite"
-import { ViewStyle, TextStyle } from "react-native"
-import { Screen, Text } from "../../../components"
+
 // import { useStores } from "../models/root-store"
-import { color } from "../../../theme"
-import { NavigationInjectedProps } from "react-navigation"
+import { ReminderScreenProps } from "./props"
+import Reminder from "./reminder"
+import { REMINDERS_DUMMY } from "./dummy"
+import { ReminderType } from "../../../utils/types"
 
-export interface ReminderScreenProps extends NavigationInjectedProps<{}> {}
-
-const ROOT: ViewStyle = {
-  backgroundColor: color.palette.black,
-}
-const HEADER_TEXT: TextStyle = {
-  color: color.palette.blue,
-}
-
-export const ReminderScreen: React.FunctionComponent<ReminderScreenProps> = observer(props => {
+export const ReminderScreen: React.FunctionComponent<ReminderScreenProps> = observer(() => {
   // const { someStore } = useStores()
-  return (
-    <Screen style={ROOT} preset="scroll">
-      <Text preset="header" tx="reminderScreen.header" style={HEADER_TEXT} />
-    </Screen>
-  )
+  const [reminders, setReminders] = React.useState(REMINDERS_DUMMY)
+
+  const onAddReminder = (title: string, description: string) => {
+    const newTask: ReminderType = {
+      id: "1",
+      title,
+      description,
+      createdAt: new Date(),
+      list: [],
+    }
+
+    setReminders([...reminders, newTask])
+  }
+
+  return <Reminder reminders={reminders} onAddReminder={onAddReminder} />
 })

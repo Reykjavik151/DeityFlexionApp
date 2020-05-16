@@ -5,10 +5,11 @@ import { TaskType } from "../../../utils/types"
 import { TasksScreenProps } from "./props"
 import Tasks from "./tasks"
 import { ITEM_STATUS } from "../../../utils/constants"
+import { TASKS_DUMMY } from "./dummy"
 // import { useStores } from "../models/root-store"
 
 export const TasksScreen: React.FunctionComponent<TasksScreenProps> = observer(() => {
-  const [tasks, setTasks] = React.useState([])
+  const [tasks, setTasks] = React.useState(TASKS_DUMMY)
 
   const onAddTask = (title: string) => {
     const newTask: TaskType = {
