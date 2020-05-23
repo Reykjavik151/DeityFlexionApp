@@ -22,6 +22,10 @@ export const TasksScreen: React.FunctionComponent<TasksScreenProps> = observer((
     setTasks([...tasks, newTask])
   }
 
+  const onAddPress = () => {
+    console.tron.log("onAddPress")
+  }
+
   // const { someStore } = useStores()
-  return <Tasks tasks={tasks} onAddTask={onAddTask} />
+  return <Tasks tasks={tasks} onAddPress={onAddPress} />
 })

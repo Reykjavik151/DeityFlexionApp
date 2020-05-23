@@ -3,7 +3,7 @@ import { ViewStyle, TextStyle } from "react-native"
 import { color } from "../../../theme"
 
 const ROOT: ViewStyle = {
-  backgroundColor: color.palette.black,
+  backgroundColor: color.palette.white,
 }
 const HEADER_TEXT: TextStyle = {
   color: color.palette.blue,

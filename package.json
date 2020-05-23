@@ -36,6 +36,7 @@
     "mobx": "^4.13.0",
     "mobx-react-lite": "^1.4.1",
     "mobx-state-tree": "^3.14.1",
+    "moment": "^2.26.0",
     "native-base": "^2.13.12",
     "ramda": "0.26.1",
     "react": "16.9.0",

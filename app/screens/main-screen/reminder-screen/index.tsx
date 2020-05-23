@@ -23,5 +23,9 @@ export const ReminderScreen: React.FunctionComponent<ReminderScreenProps> = obse
     setReminders([...reminders, newTask])
   }
 
-  return <Reminder reminders={reminders} onAddReminder={onAddReminder} />
+  const onAddPress = () => {
+    console.tron.log("On add reminders press")
+  }
+
+  return <Reminder reminders={reminders} onAddPress={onAddPress} />
 })

@@ -8,7 +8,10 @@
     "invalidEmail": "Invalid email address."
   },
   "tasksScreen": {
-    "header": "Header"
+    "tasks": "Tasks"
+  },
+  "remindersScreen": {
+    "reminders": "Reminders"
   },
   "welcomeScreen": {
     "poweredBy": "POWERED BY BOWSER",
