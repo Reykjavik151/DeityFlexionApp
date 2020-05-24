@@ -18,7 +18,7 @@ const STYLES = StyleSheet.create({
     width: 12,
   },
   TITLE: {
-    color: color.palette.orange,
+    color: color.palette.white,
     flex: 1,
   },
 })
@@ -34,7 +34,7 @@ export const getStatusColorStyle = (status: keyof typeof ITEM_STATUS): ViewStyle
       resultStyle.backgroundColor = color.palette.offWhite
       break
     case ITEM_STATUS.completed:
-      resultStyle.backgroundColor = color.palette.blue
+      resultStyle.backgroundColor = color.palette.green
       break
     case ITEM_STATUS.canceled:
       resultStyle.backgroundColor = color.palette.red
