@@ -13,6 +13,9 @@
   "remindersScreen": {
     "reminders": "Reminders"
   },
+  "addReminderScreen": {
+    "reminderView": "Reminder View"
+  },
   "welcomeScreen": {
     "poweredBy": "POWERED BY BOWSER",
     "readyForLaunch": "Ready for launch.",

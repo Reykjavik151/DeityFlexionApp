@@ -7,31 +7,23 @@ import Reminder from "./reminder"
 import { REMINDERS_DUMMY } from "./dummy"
 import { ReminderType } from "../../../utils/types"
 
-export const ReminderScreen: React.FunctionComponent<ReminderScreenProps> = observer(() => {
-  // const { someStore } = useStores()
-  const [reminders, setReminders] = React.useState(REMINDERS_DUMMY)
+export const ReminderScreen: React.FunctionComponent<ReminderScreenProps> = observer(
+  ({ navigation }) => {
+    // const { someStore } = useStores()
+    const [reminders, setReminders] = React.useState(REMINDERS_DUMMY)
 
-  const onAddReminder = (title: string, description: string) => {
-    const newTask: ReminderType = {
-      id: "1",
-      title,
-      description,
-      createdAt: new Date(),
-      list: [],
+    const onAddReminder = (newReminder: ReminderType) => setReminders([...reminders, newReminder])
+
+    const onAddPress = () => {
+      navigation.navigate("reminderAdd", { onSaveReminder: onAddReminder })
     }
 
-    setReminders([...reminders, newTask])
-  }
+    const onReminderPress = (reminder: ReminderType) => {
+      navigation.navigate("reminderAdd", { item: reminder })
+    }
 
-  const onAddPress = () => {
-    console.tron.log("On add reminders press")
-  }
-
-  const onReminderPress = (reminder: ReminderType) => {
-    console.tron.log("onReminderPress", reminder)
-  }
-
-  return (
-    <Reminder reminders={reminders} onAddPress={onAddPress} onReminderPress={onReminderPress} />
-  )
-})
+    return (
+      <Reminder reminders={reminders} onAddPress={onAddPress} onReminderPress={onReminderPress} />
+    )
+  },
+)

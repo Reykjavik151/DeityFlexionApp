@@ -1,4 +1,6 @@
 export interface ScreenHeaderProps {
   tx: string
-  onAddPress: Function
+  onBackPress?: () => void
+  isMinimized?: boolean
+  onAddPress?: Function
 }

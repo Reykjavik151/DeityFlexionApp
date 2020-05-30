@@ -2,7 +2,9 @@ import React from "react"
 import { StyleSheet, ImageStyle } from "react-native"
 import { createBottomTabNavigator } from "react-navigation-tabs"
 
-import { TasksScreen, ReminderScreen } from "../screens"
+import { ReminderNavigator } from "./reeminder-navigator"
+import { TasksScreen } from "../screens"
+
 import { Icon } from "../components"
 import { IconTypes } from "../components/icon/icons"
 import { color } from "../theme"
@@ -40,7 +42,7 @@ export const MainTabNavigator = createBottomTabNavigator(
       }),
     },
     reminderTab: {
-      screen: ReminderScreen,
+      screen: ReminderNavigator,
       navigationOptions: () => ({
         tabBarLabel: "Reminders",
         tabBarIcon: getTabBarIcon("bookmarkBlue", "bookmarkOrange", styles.remindersIcon),
