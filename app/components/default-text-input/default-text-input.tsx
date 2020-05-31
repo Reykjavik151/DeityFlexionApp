@@ -3,8 +3,9 @@ import { TextInput, TouchableOpacity } from "react-native"
 
 import { DefaultTextInputProps } from "./default-text-input.props"
 import STYLES from "./default-text-input.styles"
+import { color } from "../../theme"
 
-const DefaultTextInput: React.FunctionComponent<DefaultTextInputProps> = props => {
+export const DefaultTextInput: React.FunctionComponent<DefaultTextInputProps> = props => {
   const inputRef = React.useRef(null)
 
   const focusInput = () => inputRef.current.focus()
@@ -15,9 +16,11 @@ const DefaultTextInput: React.FunctionComponent<DefaultTextInputProps> = props =
       activeOpacity={1}
       onPress={focusInput}
     >
-      <TextInput style={STYLES.INPUT} {...props} />
+      <TextInput
+        placeholderTextColor={color.palette.lightGrey}
+        {...props}
+        style={[STYLES.INPUT, props.style]}
+      />
     </TouchableOpacity>
   )
 }
-
-export default DefaultTextInput

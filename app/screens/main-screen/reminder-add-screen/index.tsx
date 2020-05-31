@@ -25,7 +25,6 @@ export const ReminderAddScreen: React.FunctionComponent<ReminderAddScreenProps> 
     return (
       <ReminderAdd
         onBackPress={onBackPress}
-        isEdit={isEdit}
         item={item}
         onReminderChangeField={onReminderChangeField}
         onAddCheckItem={onAddCheckItem}

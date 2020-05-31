@@ -3,10 +3,9 @@ import { StatusBar } from "react-native"
 
 import { ReminderAddProps } from "./reminder-add.props"
 import STYLES from "./reminder-add.styles"
-import { Screen, ScreenHeader } from "../../../components"
+import { Screen, ScreenHeader, ReminderView } from "../../../components"
 
 const ReminderAdd: React.FunctionComponent<ReminderAddProps> = ({
-  isEdit,
   item,
   onBackPress,
   onReminderChangeField,
@@ -16,6 +15,7 @@ const ReminderAdd: React.FunctionComponent<ReminderAddProps> = ({
     <Screen style={STYLES.CONTAINER} preset="fixed">
       <StatusBar barStyle="dark-content" />
       <ScreenHeader tx="addReminderScreen.reminderView" onBackPress={onBackPress} isMinimized />
+      <ReminderView reminder={item} onChangeReminderField={onReminderChangeField} />
     </Screen>
   )
 }
