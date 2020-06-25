@@ -1,5 +1,6 @@
 import * as React from "react"
 import { observer } from "mobx-react-lite"
+import _ from "lodash"
 
 // import { useStores } from "../models/root-store"
 import { ReminderAddScreenProps } from "./props"
@@ -16,6 +17,16 @@ export const ReminderAddScreen: React.FunctionComponent<ReminderAddScreenProps> 
 
     const onReminderChangeField = (key: string, value: string) => setItem({ ...item, [key]: value })
 
+    const onReminderChangeListItem = listItem => {
+      console.tron.log(listItem, item)
+      const newItem = { ...item }
+
+      const listItemIndex = _.findIndex(newItem.list, li => li.id === listItem.id)
+      newItem.list[listItemIndex].isDone = !newItem.list[listItemIndex].isDone
+
+      setItem(newItem)
+    }
+
     const onAddCheckItem = (title: string) => {
       const newList = [...item.list]
       newList.push({ title, isDone: false })
@@ -27,6 +38,7 @@ export const ReminderAddScreen: React.FunctionComponent<ReminderAddScreenProps> 
         onBackPress={onBackPress}
         item={item}
         onReminderChangeField={onReminderChangeField}
+        onReminderChangeListItem={onReminderChangeListItem}
         onAddCheckItem={onAddCheckItem}
       />
     )

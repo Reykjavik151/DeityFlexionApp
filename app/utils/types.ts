@@ -8,6 +8,7 @@ export interface TaskType {
 }
 
 export interface ReminderListItemType {
+  id: string
   title: string
   isDone: boolean
 }

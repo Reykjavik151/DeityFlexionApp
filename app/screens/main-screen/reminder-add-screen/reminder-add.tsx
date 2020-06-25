@@ -9,13 +9,18 @@ const ReminderAdd: React.FunctionComponent<ReminderAddProps> = ({
   item,
   onBackPress,
   onReminderChangeField,
+  onReminderChangeListItem,
   onAddCheckItem,
 }) => {
   return (
     <Screen style={STYLES.CONTAINER} preset="fixed">
       <StatusBar barStyle="dark-content" />
       <ScreenHeader tx="addReminderScreen.reminderView" onBackPress={onBackPress} isMinimized />
-      <ReminderView reminder={item} onChangeReminderField={onReminderChangeField} />
+      <ReminderView
+        reminder={item}
+        onChangeReminderField={onReminderChangeField}
+        onChangeReminderListItem={onReminderChangeListItem}
+      />
     </Screen>
   )
 }
