@@ -9,6 +9,7 @@ export const CheckListItem: React.FunctionComponent<CheckListItemProps> = ({
   item,
   onChangeText,
   onPress,
+  onRemove,
 }) => (
   <View style={STYLES.CONTAINER}>
     <TouchableOpacity
@@ -19,6 +20,7 @@ export const CheckListItem: React.FunctionComponent<CheckListItemProps> = ({
       multiline
       scrollEnabled={false}
       value={item.title}
+      onBlur={() => !item.title.length && onRemove(item.id)}
       onChangeText={(value: string) => onChangeText(item.id, value)}
       containerStyle={STYLES.INPUT}
     />

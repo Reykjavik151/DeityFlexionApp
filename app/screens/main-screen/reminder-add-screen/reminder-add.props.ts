@@ -7,4 +7,5 @@ export interface ReminderAddProps {
   onReminderChangeField: (key: string, value: string) => void
   onReminderChangeListItem: (listItemId: string, field: string, value: string | boolean) => void
   onAddCheckItem: () => void
+  onRemoveCheckItem: (listItemId: string) => void
 }

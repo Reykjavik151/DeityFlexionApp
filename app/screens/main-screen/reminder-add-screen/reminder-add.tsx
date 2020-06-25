@@ -1,5 +1,5 @@
 import * as React from "react"
-import { StatusBar, Keyboard, KeyboardAvoidingViewBase, KeyboardAvoidingView } from "react-native"
+import { StatusBar } from "react-native"
 
 import { ReminderAddProps } from "./reminder-add.props"
 import STYLES from "./reminder-add.styles"
@@ -12,6 +12,7 @@ const ReminderAdd: React.FunctionComponent<ReminderAddProps> = ({
   onReminderChangeListItem,
   isEdited,
   onAddCheckItem,
+  onRemoveCheckItem,
 }) => {
   return (
     <Screen style={STYLES.CONTAINER} preset="fixed">
@@ -20,6 +21,7 @@ const ReminderAdd: React.FunctionComponent<ReminderAddProps> = ({
       <ReminderView
         reminder={item}
         onAddCheckItem={onAddCheckItem}
+        onRemoveCheckItem={onRemoveCheckItem}
         onChangeReminderField={onReminderChangeField}
         onChangeReminderListItem={onReminderChangeListItem}
       />

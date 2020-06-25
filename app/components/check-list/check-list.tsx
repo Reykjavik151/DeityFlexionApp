@@ -9,13 +9,19 @@ export const CheckList: React.FunctionComponent<CheckListProps> = ({
   data,
   onItemChangeText,
   onItemPress,
+  onRemoveCheckItem,
   onAddCheckItem,
 }) => {
   return (
     <FlatList
       data={data}
       renderItem={({ item }) => (
-        <CheckListItem item={item} onChangeText={onItemChangeText} onPress={onItemPress} />
+        <CheckListItem
+          item={item}
+          onChangeText={onItemChangeText}
+          onRemove={onRemoveCheckItem}
+          onPress={onItemPress}
+        />
       )}
       ListFooterComponent={
         <TouchableOpacity onPress={onAddCheckItem} style={STYLES.plusButtonContainer}>

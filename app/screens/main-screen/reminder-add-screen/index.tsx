@@ -46,6 +46,11 @@ export const ReminderAddScreen: React.FunctionComponent<ReminderAddScreenProps> 
       setIsEdited(true)
     }
 
+    const onRemoveCheckItem = (listItemId: string) => {
+      setItem({ ...item, list: [..._.remove(item.list, li => li.id !== listItemId)] })
+      setIsEdited(true)
+    }
+
     return (
       <ReminderAdd
         isEdited={isEdited}
@@ -54,6 +59,7 @@ export const ReminderAddScreen: React.FunctionComponent<ReminderAddScreenProps> 
         onReminderChangeField={onReminderChangeField}
         onReminderChangeListItem={onReminderChangeListItem}
         onAddCheckItem={onAddCheckItem}
+        onRemoveCheckItem={onRemoveCheckItem}
       />
     )
   },

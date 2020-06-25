@@ -9,6 +9,7 @@ import { CheckList } from "../check-list/check-list"
 export const ReminderView: React.FunctionComponent<ReminderViewProps> = ({
   reminder,
   onAddCheckItem,
+  onRemoveCheckItem,
   onChangeReminderField,
   onChangeReminderListItem,
 }) => {
@@ -35,6 +36,7 @@ export const ReminderView: React.FunctionComponent<ReminderViewProps> = ({
           onChangeReminderListItem(listItemId, "isDone", value)
         }
         onAddCheckItem={onAddCheckItem}
+        onRemoveCheckItem={onRemoveCheckItem}
       />
       {/* <TouchableOpacity onPress={onAddCheckItem}></TouchableOpacity> */}
     </View>

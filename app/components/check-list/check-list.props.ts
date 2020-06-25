@@ -5,4 +5,5 @@ export interface CheckListProps {
   onItemChangeText: (listItemId: string, value: string) => void
   onItemPress: (listItemId: string, value: boolean) => void
   onAddCheckItem: () => void
+  onRemoveCheckItem: (listItemId: string) => void
 }
