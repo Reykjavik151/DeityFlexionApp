@@ -18,6 +18,9 @@ export const DefaultTextInput: React.FunctionComponent<DefaultTextInputProps> = 
     >
       <TextInput
         placeholderTextColor={color.palette.lightGrey}
+        keyboardAppearance="dark"
+        autoCorrect={false}
+        spellCheck={false}
         {...props}
         style={[STYLES.INPUT, props.style]}
       />

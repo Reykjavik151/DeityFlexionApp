@@ -6,6 +6,7 @@ const STYLES = StyleSheet.create({
   CONTAINER: {
     backgroundColor: color.palette.black,
     borderRadius: 8,
+    flex: 1,
     margin: spacing[3],
     padding: spacing[3],
   },

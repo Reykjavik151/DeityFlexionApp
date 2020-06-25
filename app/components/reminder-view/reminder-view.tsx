@@ -34,6 +34,7 @@ export const ReminderView: React.FunctionComponent<ReminderViewProps> = ({
         onItemPress={(listItemId: string, value: boolean) =>
           onChangeReminderListItem(listItemId, "isDone", value)
         }
+        onAddCheckItem={onAddCheckItem}
       />
       {/* <TouchableOpacity onPress={onAddCheckItem}></TouchableOpacity> */}
     </View>

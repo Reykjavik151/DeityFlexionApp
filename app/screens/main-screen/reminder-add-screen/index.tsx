@@ -12,7 +12,10 @@ export const ReminderAddScreen: React.FunctionComponent<ReminderAddScreenProps> 
   ({ navigation }) => {
     // const { someStore } = useStores()
     const [isEdited, setIsEdited] = React.useState(!!navigation.getParam("item"))
-    const [item, setItem] = React.useState(navigation.getParam("item", EMPTY_REMINDER))
+    const [item, setItem] = React.useState({
+      ...navigation.getParam("item", EMPTY_REMINDER),
+      list: [...navigation.getParam("item", EMPTY_REMINDER).list.map(i => ({ ...i }))],
+    })
 
     const onBackPress = () => navigation.goBack()
 

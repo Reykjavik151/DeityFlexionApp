@@ -13,6 +13,7 @@ const CHECK_VIEW = {
 const STYLES = StyleSheet.create({
   CONTAINER: {
     alignItems: "center",
+    flex: 1,
     flexDirection: "row",
     paddingVertical: spacing[1],
     width: "100%",

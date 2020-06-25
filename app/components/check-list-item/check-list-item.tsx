@@ -17,9 +17,10 @@ export const CheckListItem: React.FunctionComponent<CheckListItemProps> = ({
     />
     <DefaultTextInput
       multiline
+      scrollEnabled={false}
       value={item.title}
       onChangeText={(value: string) => onChangeText(item.id, value)}
-      style={STYLES.INPUT}
+      containerStyle={STYLES.INPUT}
     />
   </View>
 )

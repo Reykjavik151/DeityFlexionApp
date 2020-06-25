@@ -1,4 +1,5 @@
 import { ReminderType } from "./types"
+import randomString from "random-string"
 
 interface ItemStatus {
   none: "none"
@@ -12,9 +13,9 @@ export const ITEM_STATUS: ItemStatus = {
 }
 
 export const EMPTY_REMINDER: ReminderType = {
-  id: "",
+  id: randomString(),
   title: "",
   description: "",
-  createdAt: null,
+  createdAt: new Date(),
   list: [],
 }
