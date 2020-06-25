@@ -10,6 +10,7 @@ const ReminderAdd: React.FunctionComponent<ReminderAddProps> = ({
   onBackPress,
   onReminderChangeField,
   onReminderChangeListItem,
+  isEdited,
   onAddCheckItem,
 }) => {
   return (
@@ -18,6 +19,7 @@ const ReminderAdd: React.FunctionComponent<ReminderAddProps> = ({
       <ScreenHeader tx="addReminderScreen.reminderView" onBackPress={onBackPress} isMinimized />
       <ReminderView
         reminder={item}
+        onAddCheckItem={onAddCheckItem}
         onChangeReminderField={onReminderChangeField}
         onChangeReminderListItem={onReminderChangeListItem}
       />

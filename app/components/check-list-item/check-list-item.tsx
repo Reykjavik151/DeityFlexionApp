@@ -13,12 +13,12 @@ export const CheckListItem: React.FunctionComponent<CheckListItemProps> = ({
   <View style={STYLES.CONTAINER}>
     <TouchableOpacity
       style={item.isDone ? STYLES.SELECTED_VIEW : STYLES.UNSELECTED_VIEW}
-      onPress={() => onPress(item)}
+      onPress={() => onPress(item.id, !item.isDone)}
     />
     <DefaultTextInput
       multiline
       value={item.title}
-      onChangeText={newValue => onChangeText(item, newValue)}
+      onChangeText={(value: string) => onChangeText(item.id, value)}
       style={STYLES.INPUT}
     />
   </View>

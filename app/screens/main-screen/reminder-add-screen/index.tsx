@@ -1,5 +1,6 @@
 import * as React from "react"
 import { observer } from "mobx-react-lite"
+import randomString from "random-string"
 import _ from "lodash"
 
 // import { useStores } from "../models/root-store"
@@ -10,31 +11,41 @@ import { EMPTY_REMINDER } from "../../../utils/constants"
 export const ReminderAddScreen: React.FunctionComponent<ReminderAddScreenProps> = observer(
   ({ navigation }) => {
     // const { someStore } = useStores()
-    const [isEdit] = React.useState(!!navigation.getParam("item"))
+    const [isEdited, setIsEdited] = React.useState(!!navigation.getParam("item"))
     const [item, setItem] = React.useState(navigation.getParam("item", EMPTY_REMINDER))
 
     const onBackPress = () => navigation.goBack()
 
-    const onReminderChangeField = (key: string, value: string) => setItem({ ...item, [key]: value })
-
-    const onReminderChangeListItem = listItem => {
-      console.tron.log(listItem, item)
-      const newItem = { ...item }
-
-      const listItemIndex = _.findIndex(newItem.list, li => li.id === listItem.id)
-      newItem.list[listItemIndex].isDone = !newItem.list[listItemIndex].isDone
-
-      setItem(newItem)
+    const onReminderChangeField = (key: string, value: string) => {
+      setItem({ ...item, [key]: value })
+      setIsEdited(true)
     }
 
-    const onAddCheckItem = (title: string) => {
+    const onReminderChangeListItem = (
+      listItemId: string,
+      field: string,
+      value: string | boolean,
+    ) => {
+      const newItem = { ...item }
+
+      const listItemIndex = _.findIndex(newItem.list, li => li.id === listItemId)
+      if (listItemIndex !== -1) {
+        newItem.list[listItemIndex][field] = value
+        setItem(newItem)
+        setIsEdited(true)
+      }
+    }
+
+    const onAddCheckItem = () => {
       const newList = [...item.list]
-      newList.push({ title, isDone: false })
+      newList.push({ id: randomString(), title: "", isDone: false })
       setItem({ ...item, list: newList })
+      setIsEdited(true)
     }
 
     return (
       <ReminderAdd
+        isEdited={isEdited}
         onBackPress={onBackPress}
         item={item}
         onReminderChangeField={onReminderChangeField}

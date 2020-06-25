@@ -2,8 +2,9 @@ import { ReminderType } from "../../../utils/types"
 
 export interface ReminderAddProps {
   item: ReminderType
+  isEdited: boolean
   onBackPress: () => void
-  onReminderChangeListItem: (item: any) => void
   onReminderChangeField: (key: string, value: string) => void
-  onAddCheckItem: (title: string) => void
+  onReminderChangeListItem: (listItemId: string, field: string, value: string | boolean) => void
+  onAddCheckItem: () => void
 }
